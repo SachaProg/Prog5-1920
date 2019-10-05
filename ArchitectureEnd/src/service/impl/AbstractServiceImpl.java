@@ -1,17 +1,17 @@
 package service.impl;
 
 import business.domain.Entity;
-import business.repo.Repository;
+import business.repo.AbstractRepository;
 import service.mapper.Mapper;
 
 import java.util.List;
 
 public class AbstractServiceImpl<D, E extends Entity> {
 
-    private Repository<E> repo;
+    private AbstractRepository<E> repo;
     private Mapper<D, E> mapper;
 
-    protected AbstractServiceImpl(Repository<E> repo, Mapper<D, E> mapper) {
+    protected AbstractServiceImpl(AbstractRepository<E> repo, Mapper<D, E> mapper) {
         this.repo = repo;
         this.mapper = mapper;
     }
