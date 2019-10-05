@@ -1,7 +1,6 @@
 package service.impl;
 
 import business.domain.Entity;
-import business.repo.AbstractRepository;
 import business.repo.Repository;
 import service.mapper.Mapper;
 
