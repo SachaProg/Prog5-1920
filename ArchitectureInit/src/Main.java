@@ -1,9 +1,11 @@
-import service.AddressService;
-import service.PersonService;
+import business.repo.impl.AddressRepositoryImpl;
+import business.repo.impl.PersonRepositoryImpl;
 import service.dto.Address;
 import service.dto.Person;
 import service.impl.AddressServiceImpl;
 import service.impl.PersonServiceImpl;
+import service.mapper.impl.AddressMapperImpl;
+import service.mapper.impl.PersonMapperImpl;
 
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class Main {
         address2.setZip("2000");
         address2.setId("10");
 
-        AddressService addressService = new AddressServiceImpl();
+        AddressServiceImpl addressService = new AddressServiceImpl(new AddressRepositoryImpl(), new AddressMapperImpl());
         addressService.save(address);
         addressService.save(address2);
 
@@ -45,7 +47,7 @@ public class Main {
         person2.setName("Piet");
         person2.setId("3");
 
-        PersonService personService = new PersonServiceImpl();
+        PersonServiceImpl personService = new PersonServiceImpl(new PersonRepositoryImpl(), new PersonMapperImpl());
         personService.save(person);
         personService.save(person2);
 

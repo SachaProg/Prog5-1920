@@ -2,10 +2,12 @@ package service.mapper.impl;
 
 import business.domain.AddressEntity;
 import service.dto.Address;
-import service.mapper.AbstractMapper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class AddressMapperImpl extends AbstractMapper<Address, AddressEntity> {
+public class AddressMapperImpl {
 
     public AddressEntity toEntity(Address address) {
         if (address == null)
@@ -25,6 +27,24 @@ public class AddressMapperImpl extends AbstractMapper<Address, AddressEntity> {
         address.setId(addressEntity.getId().toString());
         address.setZip(Integer.toString(addressEntity.getZip()));
         return address;
+    }
+
+    public List<Address> toDTO(List<AddressEntity> addressEntitiesList) {
+        List<Address> addresses = new ArrayList<>();
+        for(AddressEntity addressEntity : addressEntitiesList){
+            Address address = toDTO(addressEntity);
+            addresses.add(address);
+        }
+        return addresses;
+    }
+
+    public List<AddressEntity> toEntity(List<Address> addresses) {
+        List<AddressEntity> addressEntityList = new ArrayList<>();
+        for(Address address : addresses){
+            AddressEntity addressEntity = toEntity(address);
+            addressEntityList.add(addressEntity);
+        }
+        return addressEntityList;
     }
 
 }

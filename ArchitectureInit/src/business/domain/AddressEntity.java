@@ -1,9 +1,18 @@
 package business.domain;
 
-public class AddressEntity extends Entity {
+public class AddressEntity {
 
+    private Long id;
     private String city;
     private int zip;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getCity() {
         return city;
