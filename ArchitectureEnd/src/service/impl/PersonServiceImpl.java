@@ -12,7 +12,8 @@ public class PersonServiceImpl
         implements PersonService {
 
     public PersonServiceImpl() {
-        super(new PersonRepositoryImpl(), new PersonMapperImpl());
+        super(new PersonRepositoryImpl(),
+                new PersonMapperImpl());
     }
 
 }
